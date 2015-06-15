@@ -6,20 +6,22 @@ object Stats {
 
 
 
+
+
+
   /**
    * Simple arithmetic mean
    *
-   * @param items to be meaned
+   * @param it(s) to be meaned
    *
    * @return arithmetic mean
    */
-  def mean[T](items: T*)(implicit n: Numeric[T]): Double = {
-
-    items.length match {
-      case 0 => throw new IllegalArgumentException("Can't calculate the mean of 0 elements")
-      case 1 => n.toDouble(items(0))
-      case _ => ((0.0 /: items) ((a, b) => a + n.toDouble(b))) / items.length
-    }
+  def mean[T](it:T*)(implicit n:Numeric[T]) = {
+    it.map(n.toDouble).sum / it.size
   }
+
+  //what about?
+  //def mean[T](items: T*)(implicit n: Fractional[T]) = n.div(items.sum, n.fromInt(items.size))
+
 
 }

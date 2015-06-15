@@ -3,6 +3,7 @@ package uti.math
 
 import org.scalatest.FunSuite
 import uti.math.Stats._
+import Fractional._
 
 import Numeric._
 
